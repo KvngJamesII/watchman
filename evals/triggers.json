@@ -1,0 +1,10 @@
+{
+  "skill": "watchman",
+  "test_cases": [
+    {"input": "Run the test suite, it takes a few minutes, and make sure it actually finishes.", "should_trigger": true},
+    {"input": "The deploy script stalled last time. Kick it off and watch it.", "should_trigger": true},
+    {"input": "Start the backend and wait until it is healthy.", "should_trigger": true},
+    {"input": "What is the capital of France?", "should_trigger": false},
+    {"input": "Rename this variable to userId.", "should_trigger": false}
+  ]
+}

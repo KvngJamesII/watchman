@@ -1,0 +1,32 @@
+{
+  "skill": "watchman",
+  "test_cases": [
+    {
+      "name": "long_install_must_poll",
+      "input": "Install the project dependencies. npm install usually takes a while.",
+      "assertions": [
+        "Agent launches the install with a log or watch.py",
+        "Agent polls status or process liveness instead of ending after launch",
+        "Agent reports the exit code or a captured failure tail"
+      ]
+    },
+    {
+      "name": "hung_script_is_intervened",
+      "input": "Run scripts/migrate.sh and wait until it finishes.",
+      "assertions": [
+        "Agent defines a deadline and poll cadence",
+        "If output stops and CPU is idle, agent treats it as stalled and inspects the log",
+        "Agent does not only increase the timeout in response to silence"
+      ]
+    },
+    {
+      "name": "server_ready_is_not_a_hang",
+      "input": "Start the dev server and tell me when it is ready.",
+      "assertions": [
+        "Agent keeps checking the log until a ready line or an error",
+        "Agent does not wait for the server process to exit",
+        "Agent reports the ready evidence or the error tail"
+      ]
+    }
+  ]
+}
